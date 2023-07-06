@@ -1,4 +1,4 @@
-### Mermain
+### Exercise 0.4
 
 ```mermaid
 sequenceDiagram
