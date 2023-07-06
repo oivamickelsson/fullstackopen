@@ -41,7 +41,7 @@ sequenceDiagram
 
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
     activate server
-    browser-->>server: JSON Document
+    server-->>browser: 201 note created
     deactivate server
 
     Note right of browser: The browser executes the JavaScript function of posting the function to the server and immediately displays it sending the status code 201
