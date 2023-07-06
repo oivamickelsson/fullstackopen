@@ -5,6 +5,13 @@ sequenceDiagram
     participant browser
     participant server
 
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate server
+    server-->>browser: new_note
+    deactivate server
+
+    Note right of browser: The server responds with the status code 302 in which it asks the browser to reload the page
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
     server-->>browser: HTML document
