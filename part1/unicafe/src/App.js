@@ -12,7 +12,7 @@ const Button = (props) => (
 const Statictics = (props) => {
   if (props.good+props.neutral+props.bad == 0) {
     return (
-      <p>no feedback is given</p>
+      <p>No feedback is given</p>
     )
   }
   return (
