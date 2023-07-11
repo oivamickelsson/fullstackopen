@@ -37,5 +37,5 @@ sequenceDiagram
     server-->>browser: 201 note created
     deactivate server
 
-    Note right of browser: The browser executes the JavaScript function of posting the function to the server and immediately displays it sending the status code 201
+    Note right of browser: The browser executes the JavaScript function of posting the note to the server and immediately displays it sending the status code 201
 ```
