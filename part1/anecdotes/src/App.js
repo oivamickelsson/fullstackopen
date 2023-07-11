@@ -6,11 +6,6 @@ const Button = (props) => (
   </button>
 )
 
-const randomNumberInRange = (min, max) => {
-    return Math.floor(Math.random() 
-            * (max - min + 1)) + min;
-}
-
 
 const App = () => {
 
@@ -25,26 +20,23 @@ const App = () => {
     'The only way to go fast, is to go well.'
   ]
    
-  const [selected, setSelected] = useState(0);
-  const [votes, setVotes] = useState(Array(8).fill(0));
-  const [Maxvotes, setMaxValue] = useState(0);
+  const [selected, setSelected] = useState(0)
+  const [votes, setVotes] = useState(Array(8).fill(0))
+  const max = Math.max(...votes)
+  const maxnecdote =  anecdotes[votes.indexOf(max)]
+  
 
   const handleVote = () => {
-    const updatedVotes = [...votes];
-    updatedVotes[selected] += 1;
-
-    setVotes(updatedVotes);
-    console.log(votes);
-    const maxIndex = votes.indexOf(Math.max(...votes));
-    setMaxValue(maxIndex)
-    
-  };
+    const updatedVotes = [...votes]
+    updatedVotes[selected] += 1
+    setVotes(updatedVotes)
+  }
 
   const handleNextAnecdote = () => {
-    const randomIndex = Math.floor(Math.random() * anecdotes.length);
-    setSelected(randomIndex);
-  };
-  
+    const randomIndex = Math.floor(Math.random() * anecdotes.length)
+    setSelected(randomIndex)
+  }
+
 
   return (
     <div>
@@ -52,12 +44,12 @@ const App = () => {
       <p>{anecdotes[selected]}</p>
       <p>has {votes[selected]} votes</p>
       <Button handleClick={handleVote} text = "vote"/>
-      <button onClick={handleNextAnecdote}>Next Anecdote</button>
+      <Button handleClick={handleNextAnecdote} text = "next Anecdote"/>
       <h2>Anecdote with most votes</h2>
-      <p>{anecdotes[Maxvotes]}</p> 
-      <p>has {votes[Maxvotes]} votes</p>
+      <p>{maxnecdote}</p> 
+      <p>has {max} votes</p>
     </div>
-  );
+  )
 
 }
 
